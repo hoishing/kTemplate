@@ -7,11 +7,12 @@ from typing import Unpack
 
 
 TaggedElement = Callable[[str | list[str] | None, Unpack[dict]], str]
-"""type alias of tagged element function"""
+# """type alias of tagged element function"""
 
 
 def attr2str(key: str, attrs: dict) -> str:
-    """create attribute portion of an html element
+    """
+    create attribute portion of an html element
 
     Examples:
         >>> # bool True -> key itself

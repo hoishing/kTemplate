@@ -17,17 +17,22 @@ classifiers = [
 
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 
 
-[tool.poetry.group.dev.dependencies]
-mkdocstrings = "^0.19.1"
+[tool.poetry.group.docs.dependencies]
 mkdocs-material = "^9.0.4"
-
+mkdocstrings = {extras = ["python"], version = "^0.19.1"}
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.0"
 coverage = "^7.0.4"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.docs]
+optional = true
 
 [build-system]
 requires = ["poetry-core"]

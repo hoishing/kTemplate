@@ -38,6 +38,7 @@ theme:
 plugins:
   - search:
       lang: en
+  - mkdocstrings
 
 markdown_extensions:
   - pymdownx.highlight:
