@@ -1,5 +1,6 @@
 from kTemplate import create_elements, element, attr2str
 import pytest
+from typing import Any
 
 
 @pytest.mark.parametrize(
@@ -9,17 +10,28 @@ import pytest
         (dict(key="x", attrs={"x": True}), " x"),
         # bool False -> omit
         (dict(key="x", attrs={"x": False}), ""),
-        # not str, bool -> omit
+        # not string nor `True`, eg. None -> omit
         (dict(key="x", attrs={"x": None}), ""),
-        # not str, bool -> omit
+        # not string nor `True`, eg. int -> omit
         (dict(key="x", attrs={"x": 1}), ""),
         # empty str -> normal
         (dict(key="x", attrs={"x": ""}), ' x=""'),
         # str -> normal
         (dict(key="x", attrs={"x": "y"}), ' x="y"'),
+        # convert attr underscore to hyphen
+        (dict(key="data_y", attrs={"data_y": "y"}), ' data-y="y"'),
+        # convert attr name cls to class
+        (dict(key="cls", attrs={"cls": "y"}), ' class="y"'),
     ],
 )
-def test_attr2str(input, expected):
+def test_attr2str(input: dict, expected: str):
+    """test attr2str with different input combinations
+
+    Args:
+        input (dict): attr name; val: attr dict
+        expected (str): generated attribute string portion
+    """
+
     assert attr2str(**input) == expected
 
 

@@ -4,7 +4,7 @@
 
 > a minimalist python html template lib
 
-## Why
+## Why? [![start with why](https://img.shields.io/badge/start%20with-why%3F-brightgreen.svg?style=flat)][start-with-why]
 
 When building web apps with python, no matter using which framework, Flask, FastAPI, Django...etc. The go-to template is [Jinja][jinja]. In many cases, using Jinja for simple web app is just over-kill. Also, I am not the fan of its template syntax, I feel a bit clumsy putting python  loops in html with `{% ... %}` like this:
 
@@ -42,36 +42,65 @@ fast-html come close to what I want. It uses python `generator` as element outpu
 
 Thats why I create this text centric html template lib and share it on PyPi. I name it "k" template after my name, that is 😜. Hope u find it useful.
 
-## Technical Details
-
 🔗 [source code](https://github.com/hoishing/kTemplate)
 
-### Install
+## Usage
+
+### Installation
 
 `pip install kTemplate`
 
 Pure python package, zero dependency.
 
-### Usage
+### Tagged Element Functions
 
-- [common elements][common] can be imported directly
-- rare or custom element could be created by the `element` method
+- common elements(div, span, a, img ...etc) can be imported directly
 
-#### element function arguments
+    eg. `#!py from kTemplate import div, span, a, img`
 
-- content  
-  - `None` for content-less "void" element. eg. br, img
-  - empty string "" for element with end tag but no content. eg script
-  - string to put in the content of element, can mix with other elements. eg. `this <i>is</i> good`
-  - list of string: put multiple child elements inside an element
-- attributes
-  - string, included empty string "" output as attribute string value
-  - boolean `True` produce attribute without value. eg. `defer=True` -> `defer`
-  - attribute is omitted for non-string or non `True` value, eg. None, int, float...etc
+- see list of common elements [here][common]
+- rare or custom element could be created by the `element` function
+
+    eg. `#!py element(tag='MyTag', content='foo', href='bar')`
+
+    → `#!html <MyTag href="bar">foo</MyTag>`
+
+### Element Function Arguments
+
+#### content
+
+- `content=None`, which is the default value, create void element.
+
+    void element examples: br, hr, img, meta ... etc
+
+    eg. `br()` → `#!html <br />`
+
+- empty string `content=""` creates element with end tag without content.
+
+    eg `content=script(content="")` → `<o></script>`
+
+- can mix other elements with text.
+
+    eg. `content=f"this {i('is')} good"` →  `#!html this <i>is</i> good`
+
+- use `list` to create multiple child elements
+
+    eg. `div(content=[br(), hr()])` → `#!html <div><br /><hr /></div>`
+
+#### **attrs
+
+- string, included empty string `""` create string attributes
+- non-string truthy value create empty attribute
+
+    eg. `#!py option("foo", selected=True)` -> `#!py <option selected>foo</option>`
+
+- attribute is omitted for non-string falsy value(`None`, `False`, `[]`, `0` ...etc)
+
+    eg. `#!py option("bar", selected=False)` -> `#!py <option>bar</option>`
 
 ### Example
 
-This example demonstrate all features provided by kTemplate.
+The following example demonstrate the key features provided by kTemplate. See [References](./reference.md) for full documentation.
 
 ```python
 from kTemplate import (
@@ -134,20 +163,40 @@ Note that in order to workaround python naming constrains:
 - `class` attribute denoted by `cls`
 - underscore `_` will be converted to hyphen `-`
 
-### Test
+## Contribution
 
-- install pytest
-  - with poetry config in this repo `poetry install`
+Contributions are welcome, note that:
 
-- run the test
-  - start python env in sub shell `poetry shell`
-  - run the tests `pytest -v`
+- we use [Black](https://black.readthedocs.io) as the code formatter
+- we use [Poetry][poetry] for package management
+- please make sure all tests below are passed before making pull requests
+
+## Testing
+
+- fork [kTemplate](https://github.com/hoishing/kTemplate)
+- install [Poetry][poetry]
+
+```bash
+# install dev dependencies
+poetry install
+
+# activate dev env in sub shell
+poetry shell
+
+# run the test and generate coverage info
+coverage run -m pytest tests/
+
+# view coverage report
+coverage report
+```
 
 ## Need Help?
 
 Open a [github issue](https://github.com/hoishing/kTemplate/issues) or ping me on [Twitter](https://twitter.com/hoishing) ![](https://api.iconify.design/logos/twitter.svg?width=20)
 
+[poetry]: https://python-poetry.org/docs/
 [jinja]: https://jinja.palletsprojects.com
 [fast-html]: https://pypi.org/project/fast-html
 [dominate]: https://pypi.org/project/dominate
-[common]: https://https://github.com/hoishing/kTemplate
+[common]: https://github.com/hoishing/kTemplate/blob/main/kTemplate/elements.py
+[start-with-why]: https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action

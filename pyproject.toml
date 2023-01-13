@@ -20,6 +20,11 @@ classifiers = [
 python = "^3.10"
 
 
+[tool.poetry.group.dev.dependencies]
+mkdocstrings = "^0.19.1"
+mkdocs-material = "^9.0.4"
+
+
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.0"
 coverage = "^7.0.4"

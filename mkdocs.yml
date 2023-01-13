@@ -1,0 +1,51 @@
+site_name: kTemplate
+
+repo_url: https://github.com/hoishing/kTemplate
+extra_css:
+  - stylesheets/extra.css
+
+theme:
+  name: "material"
+  icon:
+    repo: fontawesome/brands/github
+  # favicon default path: docs/assets/images/favicon.png
+  # logo: https://api.iconify.design/heroicons-solid/template.svg?color=white
+  logo: assets/logo-256.png  # inside docs
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: deep purple
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: deep purple
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - navigation.instant
+    - navigation.tracking
+    # - navigation.sections
+    - navigation.expand
+    # - toc.integrate
+
+plugins:
+  - search:
+      lang: en
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  # - pymdownx.snippets
+
+nav:
+  - README: README.md
+  - References: reference.md
