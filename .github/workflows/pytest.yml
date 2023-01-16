@@ -49,3 +49,10 @@ jobs:
           source .venv/bin/activate
           coverage run -m pytest --doctest-modules
           coverage report
+      #----------------------------------------------
+      #              update docs
+      #----------------------------------------------
+      - name: Update Docs
+        run: |
+          source .venv/bin/activate
+          mkdocs gh-deploy --force

@@ -5,9 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.1.0](https://github.com/hoshing/kTemplate/releases/tag/0.1.0) - 2023-01-14
+## [0.1.0](https://github.com/hoshing/kTemplate/releases/tag/0.1.0) - 2023-01-16
 
-<small>[Compare with first commit](https://github.com/hoishing/kTemplate/commit/6431e04e8662ae19b3a8d2ea60c8784fcc2e4346...0.1.0)</small>
+<small>[Compare with first commit](https://github.com/hoishing/kTemplate/compare/6431e04e8662ae19b3a8d2ea60c8784fcc2e4346..0.1.0)</small>
 
 ### Added
 
