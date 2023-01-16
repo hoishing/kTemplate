@@ -29,12 +29,15 @@ You now have the dependencies installed in `.venv` folder.
 
 ### Testing
 
-1. run `pytest tests/` to run the tests (fix any issue)
+This package primarily use python build-in `doctest` module to create both documentation and tests at once.
+For write simple test cases with `doctest`, and more complicated ones with pytest.
+
+1. `pytest --doctest-modules` to run the tests (and fix any issue)
 1. optionally run pytest with coverage report
 
 ```shell
 # run the test and generate coverage info
-coverage run -m pytest tests/
+coverage run -m pytest --doctest-moduels
 
 # view coverage report
 coverage report
