@@ -38,15 +38,25 @@ theme:
 plugins:
   - search:
       lang: en
-  - mkdocstrings
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_root_heading: true
+            show_signature_annotations: true
 
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
   - pymdownx.superfences
-  # - pymdownx.snippets
+  - pymdownx.snippets
 
 nav:
-  - README: README.md
-  - References: reference.md
+  - Quick Start: quickstart.md
+  - Why: why.md 
+  - Usage: usage.md
+  - References: ref.md
+  - Contribute & Test: contribute.md
+  - Changelog: changelog.md
+  - License: license.md
