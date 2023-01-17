@@ -13,16 +13,14 @@ theme:
   logo: assets/logo-256.png  # inside docs
   palette:
     # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      primary: deep purple
+    - primary: deep purple
       scheme: slate
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to light mode
 
     # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      primary: deep purple
+    - primary: deep purple
       scheme: default
       toggle:
         icon: material/toggle-switch
