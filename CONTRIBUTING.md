@@ -29,19 +29,11 @@ You now have the dependencies installed in `.venv` folder.
 
 ### Testing
 
-This package primarily use python build-in `doctest` module to create both documentation and tests at once.
-For write simple test cases with `doctest`, and more complicated ones with pytest.
-
-1. `pytest --doctest-modules` to run the tests (and fix any issue)
-1. optionally run pytest with coverage report
-
-```shell
-# run the test and generate coverage info
-coverage run -m pytest --doctest-moduels
-
-# view coverage report
-coverage report
-```
+This package primarily use `doctest` in docstring to perform unit tests,
+as well as providing usage examples. For tests require setup / teardown,
+and parameterized input, `pytest` can be used.
+Please run `pytest --doctest-modules`
+to test the code and fix any issue before submit.
 
 ### Updating Docs
 
@@ -50,9 +42,9 @@ If you updated the docs:
 - run `mkdocs serve`
 - visit http://localhost:8000 and check that everything looks good
 
-## CI/CD
+## CI - Github Action
 
-If you are unsure about how to fix the error/warning by the CI/CD process in github,
+If you are unsure about how to fix the error/warning from github action,
 just let the continuous integration fail,
 and we will help you during review.
 

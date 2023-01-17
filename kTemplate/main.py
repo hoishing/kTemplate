@@ -10,9 +10,11 @@ TaggedElement = Callable[[str | list[str] | None, Unpack[dict]], str]
 
 def attr2str(key: str, attrs: dict) -> str:
     """
-    create attribute portion of an html element
+    create attribute string of specific key in an html element
 
     Examples:
+
+        Here shows the attribute string output from diff types of attribute dict value
 
         - str -> str
         >>> attr2str(key="x", attrs={"x": "y"})
