@@ -1,6 +1,6 @@
 # kTemplate
 
-[![CI](https://github.com/hoishing/kTemplate/actions/workflows/main.yml/badge.svg)](https://github.com/hoishing/kTemplate/actions/workflows/main.yml) [![Coverage](coverage-badge.svg)](htmlcov/) [![GitHub](https://img.shields.io/github/license/hoishing/kTemplate)](https://opensource.org/licenses/MIT) 
+[![CI][ci-badge]][ci-url] [![Coverage][coverage-badge]][coverage-url] [![GitHub][MIT-badge]][MIT-url]
 
 > a minimalist python html template
 
@@ -42,3 +42,10 @@ Please refer the [docs](https://hoishing.github.io/kTemplate) for more about:
 ## Need Help?
 
 Open a [github issue](https://github.com/hoishing/kTemplate/issues) or ping me on [Twitter](https://twitter.com/hoishing) ![](https://api.iconify.design/logos/twitter.svg?width=20)
+
+[ci-badge]: https://github.com/hoishing/kTemplate/actions/workflows/ci.yml/badge.svg
+[ci-url]: https://github.com/hoishing/kTemplate/actions/workflows/ci.yml
+[coverage-badge]: https://hoishing.github.io/kTemplate/assets/coverage-badge.svg
+[coverage-url]: https://hoishing.github.io/kTemplate/assets/coverage/
+[MIT-badge]: https://img.shields.io/github/license/hoishing/kTemplate
+[MIT-url]: https://opensource.org/licenses/MIT
