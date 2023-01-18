@@ -31,7 +31,7 @@ share/python-wheels/
 MANIFEST
 
 # Unit test / coverage reports
-# htmlcov/
+htmlcov/
 .tox/
 .nox/
 .coverage
@@ -44,7 +44,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
-coverage-badge.svg
 
 # Jupyter Notebook
 .ipynb_checkpoints
