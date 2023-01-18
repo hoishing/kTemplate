@@ -1,6 +1,6 @@
 # kTemplate
 
-[![main](https://github.com/hoishing/kTemplate/actions/workflows/main.yml/badge.svg)](https://github.com/hoishing/kTemplate/actions/workflows/main.yml) [![GitHub](https://img.shields.io/github/license/hoishing/kTemplate)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/hoishing/kTemplate/actions/workflows/main.yml/badge.svg)](https://github.com/hoishing/kTemplate/actions/workflows/main.yml) [![Coverage](coverage-badge.svg)](htmlcov/) [![GitHub](https://img.shields.io/github/license/hoishing/kTemplate)](https://opensource.org/licenses/MIT) 
 
 > a minimalist python html template
 

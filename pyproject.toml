@@ -22,7 +22,8 @@ python = "^3.11"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs-material = "^9.0.4"
-mkdocstrings = {extras = ["python"], version = "^0.19.1"}
+mkdocstrings = { extras = ["python"], version = "^0.19.1" }
+genbadge = {extras = ["coverage"], version = "^1.1.0"}
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.0"

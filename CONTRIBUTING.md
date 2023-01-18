@@ -9,7 +9,7 @@ install [poetry](https://python-poetry.org/) if you haven't.
 
 Fork and clone the repository, then:
 
-```bash
+```shell
 cd kTemplate
 poetry install --with test --with docs
 ```
@@ -21,6 +21,7 @@ You now have the dependencies installed in `.venv` folder.
 1. start the environment with `poetry shell`
 1. create a new branch: `git checkout -b feature-or-bugfix-name`
 1. edit the code and/or the documentation
+1. test your code with `./run-test.sh`
 
 ### Code Formatting
 
@@ -29,11 +30,13 @@ You now have the dependencies installed in `.venv` folder.
 
 ### Testing
 
-This package primarily use `doctest` in docstring to perform unit tests,
-as well as providing usage examples. For tests require setup / teardown,
-and parameterized input, `pytest` can be used.
-Please run `pytest --doctest-modules`
-to test the code and fix any issue before submit.
+This package primarily use `doctest` in docstring to perform simple unit tests,
+as well as creating documentation in one go.
+For more complicated tests that require setup / teardown,
+and parameterized input, `pytest` is recommended.
+
+Please run `./run-test.sh` to test the code and fix any issue before making PR.
+This script run doctest, pytest, generate coverage report and coverage badge.
 
 ### Updating Docs
 
