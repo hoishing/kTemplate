@@ -1,33 +1,39 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## 0.1.1 (2023-01-23)
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+#### Fixes
 
-## [0.1.0](https://github.com/hoshing/kTemplate/releases/tag/0.1.0) - 2023-01-16
+* readme badges
 
-<small>[Compare with first commit](https://github.com/hoishing/kTemplate/compare/6431e04e8662ae19b3a8d2ea60c8784fcc2e4346..0.1.0)</small>
+#### Docs
 
-### Added
+* set default theme to dark
 
-- kTemplate core features
-  - element function
-  - common tagged elements
-- tests
-  - parasitized pytest
-  - doctest in docstring
-- documentation
-  - docstring in Google format
-  - detail examples
-  - README with quick start
-  - changelog
-  - contributing guideline
-- mkdocs setup
-  - dark and light theme
-  - snippets: importing other files into mkdocs
-- CD/CI with github actions on push
-  - run pytest
-  - run doctest
-  - generate function reference from docstring with [mkdocstings](https://github.com/mkdocstrings/mkdocstrings)
-  - deploy mkdocs
+#### Others
+
+* publish to pypi 0.1.1
+* rename gh action, add pull req trigger
+* move coverage report + badge to inside docs
+* add build status badge
+* fine tune docs
+* add coverage badge w/ report, add run-test script
+
+Full set of changes: [`0.1.0...0.1.1`](https://github.com/hoishing/kTemplate/compare/0.1.0...0.1.1)
+
+## 0.1.0 (2023-01-16)
+
+#### Fixes
+
+* mkdocs index page
+* pytest args in github action
+
+#### Docs
+
+* setup mkdocs
+
+#### Others
+
+* add mkdocs auto deploy
+* update github action
+* update docs and doctest

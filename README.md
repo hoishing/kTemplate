@@ -1,6 +1,6 @@
 # kTemplate
 
-[![CI][ci-badge]][ci-url] [![Coverage][coverage-badge]][coverage-url] [![pypi][pypi-badge]][pypi-url] ![py-version][py-version] [![Code style: black][black-badge]][black-url] [![GitHub][MIT-badge]][MIT-url]
+[![ci-badge]][ci-url] [![coverage-badge]][coverage-url] [![pypi-badge]][pypi-url] [![py-version]][py-url] [![MIT-badge]][MIT-url] [![black-badge]][black-url]
 
 > a minimalist python html template
 
@@ -30,14 +30,14 @@ my_element = element(tag="MyElement", content="foo" props="bar")
 
 ## Documentation
 
-Please refer the [docs](https://hoishing.github.io/kTemplate) for more about:
+Please refer the [docs] for more about:
 
-- why creating this package
-- usage details
-- function references
-- contributing guideline
-- testing
-- changelog
+- [why] creating this package
+- [usage] details
+- function [references]
+- [contributing] guideline
+- [testing]
+- [changelog]
 
 ## Need Help?
 
@@ -54,3 +54,11 @@ Open a [github issue](https://github.com/hoishing/kTemplate/issues) or ping me o
 [black-badge]: https://img.shields.io/badge/code%20style-black-000000.svg
 [black-url]: https://github.com/psf/black
 [py-version]: https://img.shields.io/pypi/pyversions/kTemplate
+[py-url]: https://python.org
+[docs]: https://hoishing.github.io/kTemplate/
+[why]: https://hoishing.github.io/kTemplate/why
+[usage]: https://hoishing.github.io/kTemplate/usage
+[references]: https://hoishing.github.io/kTemplate/ref
+[contributing]: https://hoishing.github.io/kTemplate/contribute/
+[testing]: https://hoishing.github.io/kTemplate/contribute#testing
+[changelog]: https://hoishing.github.io/kTemplate/changelog
