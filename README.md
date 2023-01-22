@@ -1,6 +1,6 @@
 # kTemplate
 
-[![CI][ci-badge]][ci-url] [![Coverage][coverage-badge]][coverage-url] [![pypi][pypi-badge]][pypi-url] [![GitHub][MIT-badge]][MIT-url]
+[![CI][ci-badge]][ci-url] [![Coverage][coverage-badge]][coverage-url] [![pypi][pypi-badge]][pypi-url] ![py-version][py-version] [![Code style: black][black-badge]][black-url] [![GitHub][MIT-badge]][MIT-url]
 
 > a minimalist python html template
 
@@ -51,3 +51,6 @@ Open a [github issue](https://github.com/hoishing/kTemplate/issues) or ping me o
 [MIT-url]: https://opensource.org/licenses/MIT
 [pypi-badge]: https://img.shields.io/pypi/v/ktemplate
 [pypi-url]: https://pypi.org/project/ktemplate/
+[black-badge]: https://img.shields.io/badge/code%20style-black-000000.svg
+[black-url]: https://github.com/psf/black
+[py-version]: https://img.shields.io/pypi/pyversions/kTemplate
