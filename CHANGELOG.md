@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.0 (2023-01-28)
+
+#### New Features
+
+* add *args in element function for attribute w/o value
+
+#### Docs
+
+* update readme and changelog
+* add python and black badge
+
+Full set of changes: [`0.1.1...0.2.0`](git@github.com:hoishing/kTemplate/compare/0.1.1...0.2.0)
+
 ## 0.1.1 (2023-01-23)
 
 #### Fixes
@@ -19,7 +32,7 @@
 * fine tune docs
 * add coverage badge w/ report, add run-test script
 
-Full set of changes: [`0.1.0...0.1.1`](https://github.com/hoishing/kTemplate/compare/0.1.0...0.1.1)
+Full set of changes: [`0.1.0...0.1.1`](git@github.com:hoishing/kTemplate/compare/0.1.0...0.1.1)
 
 ## 0.1.0 (2023-01-16)
 
