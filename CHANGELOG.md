@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.3.0 (2023-01-29)
+
+#### New Features
+
+- support python 3.10
+
+#### Docs
+
+- update changelog
+
+#### Others
+
+- pypi pump to v0.2.0
+
+Full set of changes: [`0.2.0...0.3.0`](git@github.com:hoishing/kTemplate/compare/0.2.0...0.3.0)
+
 ## 0.2.0 (2023-01-28)
 
 #### New Features
