@@ -18,10 +18,11 @@ classifiers = [
 
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.10"
 
 
 [tool.poetry.group.docs.dependencies]
+auto-changelog = "^0.6.0"
 mkdocs-material = "^9.0.4"
 mkdocstrings = { extras = ["python"], version = "^0.19.1" }
 genbadge = { extras = ["coverage"], version = "^1.1.0" }

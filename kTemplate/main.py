@@ -1,11 +1,6 @@
 from functools import reduce
 from functools import partial
-from collections.abc import Callable
-from typing import Unpack
-
-
-TaggedElement = Callable[[str | list[str] | None, Unpack[dict]], str]
-"""type alias of tagged element function"""
+from typing import Callable
 
 
 def attr2str(key: str, attrs: dict) -> str:
@@ -68,7 +63,7 @@ def attr2str(key: str, attrs: dict) -> str:
 
 
 def element(tag: str, content: str | list[str] = None, *args, **kwargs) -> str:
-    """create html element with specific tag and attributes
+    """return html element with specific tag and attributes
 
     Examples:
 
@@ -123,9 +118,12 @@ def element(tag: str, content: str | list[str] = None, *args, **kwargs) -> str:
         tag (str): element tag name
         content (str | list[str], optional): Defaults to None.
             text or list of other elements, `None` returns element w/o closing tag
-        attrs (dict): key-value pairs of html attributes
+        args (list[str], optional): names of value-less attributes
+            - eg. `defer`, `selected`
+            - it is also useful for UnoCSS attributify mode
+        kwagrs (dict): key-value pairs of html attributes
             - if val is str, assign `key="val"`
-            - if key is non-string truthy, assign the key itself, eg.
+            - if key is non-string truthy, assign value-less attribute, eg.
                 - selected=True -> selected
                 - defer=1 -> defer
             - if key is non-str falsy, the key is omitted
@@ -144,7 +142,7 @@ def element(tag: str, content: str | list[str] = None, *args, **kwargs) -> str:
     return f"<{tag}{kwarg_str}{args_str}>{inner}</{tag}>"
 
 
-def create_elements(tags: str) -> list[TaggedElement]:
+def create_elements(tags: str) -> list[Callable]:
     """create tagged element functions
 
     Notes:

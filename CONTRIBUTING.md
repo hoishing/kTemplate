@@ -21,7 +21,7 @@ You now have the dependencies installed in `.venv` folder.
 1. start the environment with `poetry shell`
 1. create a new branch: `git checkout -b feature-or-bugfix-name`
 1. edit the code and/or the documentation
-1. test your code with `./run-test.sh`
+1. test your code and update docs with `./prebuild.sh`
 
 ### Code Formatting
 
