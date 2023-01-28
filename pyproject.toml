@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kTemplate"
-version = "0.1.1"
+version = "0.2.0"
 description = "a minimalist python html template lib"
 authors = ["Kelvin Ng <hoishing@gmail.com>"]
 readme = "README.md"
