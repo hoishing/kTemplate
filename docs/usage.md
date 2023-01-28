@@ -4,22 +4,22 @@
 
 Pure python package, zero dependency.
 
-## Tagged Element Functions
+## Common HTML Elements
 
 - common elements(div, span, a, img ...etc) can be imported directly
 
     eg. `#!py from kTemplate import div, span, a, img`
 
-- see list of common elements [here][common_ele]
+- see list of common HTML elements [here][common_ele]
 - rare or custom element could be created by the `element` function
 
     eg. `#!py element(tag='MyTag', content='foo', href='bar')`
 
     → `#!html <MyTag href="bar">foo</MyTag>`
 
-## Element Function
+## Custom Elements
 
-To create uncommon or custom tags, `element` function can be used. Below explains the use of function arguments.
+We use `element` function to create custom HTML elements. Usage of the function arguments is illustrated below.
 
 ### tag
 
@@ -27,17 +27,15 @@ required: name of the custom tag.
 
 ### content
 
-- `content=None`, which is the default value, create void element.
-
-    void element examples: br, hr, img, meta ... etc
+- `content=None` (default value) create void element such as: `br`, `hr`, `img`, `meta` ... etc
 
     eg. `br()` → `#!html <br />`
 
-- empty string `content=""` creates element with end tag without content.
+- empty string `content=""` creates element with end tag but no content.
 
-    eg `content=script(content="")` → `<o></script>`
+    eg `script(content="")` → `<script></script>`
 
-- can mix other elements with text.
+- since elements are just text, it can interpolate with other text
 
     eg. `content=f"this {i('is')} good"` →  `#!html this <i>is</i> good`
 
@@ -47,9 +45,9 @@ required: name of the custom tag.
 
 ### *args
 
-Optional positional arguments. They will be converted into tag attributes without values. eg. `defer`, `option`
+variable non-keyword arguments will be converted to element attributes without values. eg. `defer`, `option`
 
-An other use case is working with UnoCSS [attributify mode][attributify], which you can assign CSS utility classes directly as tag attributes. eg.
+It is useful when working with UnoCSS [attributify mode][attributify], you can assign CSS utility classes directly as attributes. eg.
 
 ```python
 div(None, 'm-2', 'rounded', 'text-teal-400')
@@ -62,6 +60,8 @@ returns
 ```
 
 ### **kwargs
+
+variable keyword arguments
 
 - string, included empty string `""` create string attributes
 - non-string truthy value create empty attribute
@@ -136,6 +136,62 @@ Note that in order to workaround python naming constrains:
 
 - `class` attribute denoted by `cls`
 - underscore `_` will be converted to hyphen `-`
+
+## Templates and Components
+
+You can create HTML templates and components with the same mechanism of creating elements.
+
+```python
+from kTemplate import div, h2, hr, DOCTYPE, html, head, script, body
+
+
+def template(slot: str) -> str:
+    """html template with slot"""
+    return DOCTYPE + html(
+        [
+            # UnoCSS
+            head(script("", src="https://cdn.jsdelivr.net/npm/@unocss/runtime")),
+            body(slot),
+        ]
+    )
+
+
+def component(name: str, age: int, slot1: str, slot2: str = ""):
+    """component with props and slots"""
+    return div(
+        [
+            h2(f"Hi {name} 🚀", cls="bg-orange-300 rounded"),
+            div(f"I am {age} ~", cls="m-2 rounded text-teal-400"),
+            slot1,
+            hr(),
+            slot2,
+        ]
+    )
+
+
+with open("index.html", "w") as f:
+    html = template(component("Kelvin", 42, div("Good Day 🍀")))
+    f.write(html)
+```
+
+then the following HTML will be created(without indents and line breaks):
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
+  </head>
+  <body>
+    <div>
+      <h2 class="bg-orange-300 rounded">Hi Kelvin 🚀</h2>
+      <div class="m-2 rounded text-teal-400">I am 42 ~</div>
+      <div>Good Day 🍀</div>
+      <hr />
+    </div>
+  </body>
+</html>
+```
 
 [common_ele]: https://github.com/hoishing/kTemplate/blob/main/kTemplate/elements.py
 [attributify]: https://github.com/unocss/unocss/tree/main/packages/preset-attributify/

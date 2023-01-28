@@ -10,7 +10,7 @@
 
 `pip install kTemplate`
 
-### Example
+### Examples
 
 ```python
 from kTemplate import (
@@ -27,6 +27,8 @@ html_str = div(img(src='url'), cls='bar')
 my_element = element(tag="MyElement", content="foo" props="bar")
 # -> <MyElement props="ar">foo</MyElement>
 ```
+
+Please refer to the docs for creating HTML [templates and components][components]
 
 ## Documentation
 
@@ -58,7 +60,8 @@ Open a [github issue](https://github.com/hoishing/kTemplate/issues) or ping me o
 [docs]: https://hoishing.github.io/kTemplate/
 [why]: https://hoishing.github.io/kTemplate/why
 [usage]: https://hoishing.github.io/kTemplate/usage
+[components]: https://hoishing.github.io/kTemplate/usage/#templates-and-components
 [references]: https://hoishing.github.io/kTemplate/ref
 [contributing]: https://hoishing.github.io/kTemplate/contribute/
-[testing]: https://hoishing.github.io/kTemplate/contribute#testing
+[testing]: https://hoishing.github.io/kTemplate/contribute/#testing
 [changelog]: https://hoishing.github.io/kTemplate/changelog
