@@ -67,7 +67,7 @@ def attr2str(key: str, attrs: dict) -> str:
     return f" {attr}" if val else ""
 
 
-def element(tag: str, content: str | list[str] = None, **attrs) -> str:
+def element(tag: str, content: str | list[str] = None, *args, **kwargs) -> str:
     """create html element with specific tag and attributes
 
     Examples:
@@ -91,6 +91,18 @@ def element(tag: str, content: str | list[str] = None, **attrs) -> str:
         - non-string falsy attrubite -> attribute omitted
         >>> element(tag="option", content="a", selected=False)
         '<option>a</option>'
+
+        - var positional args -> return attribute key itself
+        >>> element('option', 'foo', 'selected', value='foo')
+        '<option value="foo" selected>foo</option>'
+
+        - var positional args, useful in UnoCSS attributify mode
+        >>> element('div', None, 'm-2', 'rounded', 'text-teal-400')
+        '<div m-2 rounded text-teal-400 />'
+
+        - var positional args + keyword args
+        >>> element('a', 'foo', 'm-2', 'rounded', 'text-teal-400', href='bar')
+        '<a href="bar" m-2 rounded text-teal-400>foo</a>'
 
         - element tree
         >>> element(tag="div", content=element("div", "x"))
@@ -121,15 +133,15 @@ def element(tag: str, content: str | list[str] = None, **attrs) -> str:
     Returns:
         str: html element with specific tag and attributes
     """
-
-    attr_str = reduce(lambda cum, key: cum + attr2str(key, attrs), attrs, "")
+    args_str = " " + " ".join(args) if args else ""
+    kwarg_str = reduce(lambda cum, key: cum + attr2str(key, kwargs), kwargs, "")
 
     # content-less `void` element with self closing tag
     if content is None:
-        return f"<{tag}{attr_str} />"
+        return f"<{tag}{kwarg_str}{args_str} />"
 
     inner = "".join(content) if isinstance(content, list) else content
-    return f"<{tag}{attr_str}>{inner}</{tag}>"
+    return f"<{tag}{kwarg_str}{args_str}>{inner}</{tag}>"
 
 
 def create_elements(tags: str) -> list[TaggedElement]:

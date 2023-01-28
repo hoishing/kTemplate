@@ -17,7 +17,13 @@ Pure python package, zero dependency.
 
     → `#!html <MyTag href="bar">foo</MyTag>`
 
-## Element Function Arguments
+## Element Function
+
+To create uncommon or custom tags, `element` function can be used. Below explains the use of function arguments.
+
+### tag
+
+required: name of the custom tag.
 
 ### content
 
@@ -39,7 +45,23 @@ Pure python package, zero dependency.
 
     eg. `div(content=[br(), hr()])` → `#!html <div><br /><hr /></div>`
 
-### **attrs
+### *args
+
+Optional positional arguments. They will be converted into tag attributes without values. eg. `defer`, `option`
+
+An other use case is working with UnoCSS [attributify mode][attributify], which you can assign CSS utility classes directly as tag attributes. eg.
+
+```python
+div(None, 'm-2', 'rounded', 'text-teal-400')
+```
+
+returns
+
+```html
+<div m-2 rounded text-teal-400 />
+```
+
+### **kwargs
 
 - string, included empty string `""` create string attributes
 - non-string truthy value create empty attribute
@@ -116,3 +138,4 @@ Note that in order to workaround python naming constrains:
 - underscore `_` will be converted to hyphen `-`
 
 [common_ele]: https://github.com/hoishing/kTemplate/blob/main/kTemplate/elements.py
+[attributify]: https://github.com/unocss/unocss/tree/main/packages/preset-attributify/
