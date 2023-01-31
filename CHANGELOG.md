@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.3.1 (2023-01-31)
+
+#### Fixes
+
+- docstring of generated element functions
+
+#### Docs
+
+- add template & component usage
+
+#### Others
+
+- pump to v0.3.0
+
+Full set of changes: [`0.3.0...0.3.1`](https://github.com/hoishing/kTemplate/compare/0.3.0...0.3.1)
+
 ## 0.3.0 (2023-01-29)
 
 #### New Features
@@ -14,7 +30,7 @@
 
 - pypi pump to v0.2.0
 
-Full set of changes: [`0.2.0...0.3.0`](git@github.com:hoishing/kTemplate/compare/0.2.0...0.3.0)
+Full set of changes: [`0.2.0...0.3.0`](https://github.com/hoishing/kTemplate/compare/0.2.0...0.3.0)
 
 ## 0.2.0 (2023-01-28)
 
@@ -27,7 +43,7 @@ Full set of changes: [`0.2.0...0.3.0`](git@github.com:hoishing/kTemplate/compare
 - update readme and changelog
 - add python and black badge
 
-Full set of changes: [`0.1.1...0.2.0`](git@github.com:hoishing/kTemplate/compare/0.1.1...0.2.0)
+Full set of changes: [`0.1.1...0.2.0`](https://github.com/hoishing/kTemplate/compare/0.1.1...0.2.0)
 
 ## 0.1.1 (2023-01-23)
 
@@ -48,7 +64,7 @@ Full set of changes: [`0.1.1...0.2.0`](git@github.com:hoishing/kTemplate/compare
 - fine tune docs
 - add coverage badge w/ report, add run-test script
 
-Full set of changes: [`0.1.0...0.1.1`](git@github.com:hoishing/kTemplate/compare/0.1.0...0.1.1)
+Full set of changes: [`0.1.0...0.1.1`](https://github.com/hoishing/kTemplate/compare/0.1.0...0.1.1)
 
 ## 0.1.0 (2023-01-16)
 
