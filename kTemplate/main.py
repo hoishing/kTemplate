@@ -168,4 +168,27 @@ def create_elements(tags: str) -> list[Callable]:
         list[TaggedElement]: list of tagged element functions
             eg. [a br div span]
     """
-    return [partial(element, t.strip()) for t in tags.split(",")]
+    op = []
+    for tag in tags.split(","):
+        func = partial(element, tag.strip())
+        func.__doc__ = f"""`{tag}` element function
+
+Args:
+    content (str | list[str], optional): Defaults to None.
+        text or list of other elements, `None` returns element w/o closing tag
+    args (list[str], optional): names of value-less attributes
+        - eg. `defer`, `selected`
+        - it is also useful for UnoCSS attributify mode
+    kwagrs (dict): key-value pairs of html attributes
+        - if val is str, assign `key="val"`
+        - if key is non-string truthy, assign value-less attribute, eg.
+            - selected=True -> selected
+            - defer=1 -> defer
+        - if key is non-str falsy, the key is omitted
+            - eg. <option selected=
+Returns:
+    str: `{tag}` element string with attributes
+"""
+        op.append(func)
+
+    return op
