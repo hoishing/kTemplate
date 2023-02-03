@@ -1,7 +1,7 @@
 # ⚠️ to be invoked by version_pump.py ⚠️
 
 # run test with coverage report
-coverage run -m pytest --doctest-modules
+coverage run -m pytest --doctest-modules kTemplate tests
 coverage report
 
 # create html report for docs
