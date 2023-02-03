@@ -21,7 +21,7 @@ You now have the dependencies installed in `.venv` folder.
 1. start the environment with `poetry shell`
 1. create a new branch: `git checkout -b feature-or-bugfix-name`
 1. edit the code and/or the documentation
-1. test your code and update docs with `./prebuild.sh`
+1. test your code with `coverage run -m pytest --doctest-modules kTemplate tests`
 
 ### Code Formatting
 
@@ -35,8 +35,7 @@ as well as creating documentation in one go.
 For more complicated tests that require setup / teardown,
 and parameterized input, `pytest` is recommended.
 
-Please run `./run-test.sh` to test the code and fix any issue before making PR.
-This script run doctest, pytest, generate coverage report and coverage badge.
+Please test the code and fix any issue before making PR.
 
 ### Updating Docs
 
