@@ -11,7 +11,7 @@ Fork and clone the repository, then:
 
 ```shell
 cd kTemplate
-poetry install --with test --with docs
+poetry install --with dev
 ```
 
 You now have the dependencies installed in `.venv` folder.
