@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.2 (2023-02-03)
+
+#### Docs
+
+- update chanagelog
+
+#### Others
+
+- automate version pump, auto-changelog, pypi publish
+- combine test and docs group into dev group
+
+Full set of changes: [`0.3.1...0.3.2`](https://github.com/hoishing/kTemplate/compare/0.3.1...0.3.2)
+
 ## 0.3.1 (2023-01-31)
 
 #### Fixes
