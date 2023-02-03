@@ -9,8 +9,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
   # favicon default path: docs/assets/images/favicon.png
-  # logo: https://api.iconify.design/heroicons-solid/template.svg?color=white
-  logo: assets/logo-256.png  # inside docs
+  logo: https://api.iconify.design/heroicons-solid/template.svg?color=white
   palette:
     # Palette toggle for dark mode
     - primary: deep purple
