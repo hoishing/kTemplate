@@ -142,7 +142,7 @@ def element(tag: str, content: str | list[str] = None, *args, **kwargs) -> str:
     return f"<{tag}{kwarg_str}{args_str}>{inner}</{tag}>"
 
 
-def create_elements(tags: str) -> list[Callable]:
+def create_elements(tags: str) -> list[Callable[..., str]]:
     """create tagged element functions
 
     Notes:
