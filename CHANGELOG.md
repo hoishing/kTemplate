@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.3.3 (2023-02-19)
+
+#### New Features
+
+- udpate element output type from Any to str
+
+#### Fixes
+
+- docs logo, coverage badge
+- coverage specify pytest folders
+
+#### Docs
+
+- update appearance
+- update favicon and contribute
+
+#### Others
+
+- update changelog, version pump
+
+Full set of changes: [`0.3.2...0.3.3`](https://github.com/hoishing/kTemplate/compare/0.3.2...0.3.3)
+
 ## 0.3.2 (2023-02-03)
 
 #### Docs
