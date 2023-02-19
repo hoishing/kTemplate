@@ -5,36 +5,32 @@ Every little bit helps, and credit will always be given.
 
 ## Environment setup
 
-install [poetry](https://python-poetry.org/) if you haven't.
-
-Fork and clone the repository, then:
+- install [poetry](https://python-poetry.org/)
+- fork the repo to your github account
+- clone the repo and change into the directory
+- install the dependencies:
 
 ```shell
-cd kTemplate
 poetry install --with dev
 ```
 
-You now have the dependencies installed in `.venv` folder.
+Dev dependencies are installed in `.venv` folder.
 
 ## Development
 
 1. start the environment with `poetry shell`
-1. create a new branch: `git checkout -b feature-or-bugfix-name`
-1. edit the code and/or the documentation
-1. test your code with `coverage run -m pytest --doctest-modules kTemplate tests`
+1. create a new branch: `git checkout -b branch-name`
+1. edit the code and docs
+1. test your code with `pytest --doctest-modules path/to/your/files`
 
 ### Code Formatting
 
-- run `black kTemplate/ tests/` to auto-format the code
-- or in vscode use `black` as the python auto formatter
+- run `black path/to/your/files` to auto-format the code
+- or use `black` as the python auto formatter in your code editor
 
 ### Testing
 
-This package primarily use `doctest` in docstring to perform simple unit tests,
-as well as creating documentation in one go.
-For more complicated tests that require setup / teardown,
-and parameterized input, `pytest` is recommended.
-
+This package use both `doctest` in docstring and `pytest` to perform tests.
 Please test the code and fix any issue before making PR.
 
 ### Updating Docs
@@ -47,7 +43,6 @@ If you updated the docs:
 ## CI - Github Action
 
 If you are unsure about how to fix the error/warning from github action,
-just let the continuous integration fail,
-and we will help you during review.
+just let the CI fail, we will help you during code review.
 
 Don't bother updating the changelog, we will take care of this.

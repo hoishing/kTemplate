@@ -5,6 +5,8 @@ extra_css:
   - stylesheets/extra.css
 
 theme:
+  font:
+    text: Varela Round
   name: "material"
   icon:
     repo: fontawesome/brands/github
@@ -51,9 +53,8 @@ markdown_extensions:
 
 nav:
   - Quick Start: index.md
-  - Why: why.md 
   - Usage: usage.md
-  - References: ref.md
+  - References: reference.md
   - Contribute & Test: contribute.md
   - Changelog: changelog.md
   - License: license.md
