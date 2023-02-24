@@ -73,7 +73,7 @@ def main(section, tag, publish):
             cmds = [
                 "git push --tag -f",
                 # run test w/ coverage
-                "coverage run -m pytest --doctest-modules",
+                "coverage run -m pytest --doctest-modules --ignore pump.py --ignore-glob try.*",
                 "coverage report",
                 # create html report for docs
                 "coverage html -d docs/assets/coverage",
@@ -88,7 +88,7 @@ def main(section, tag, publish):
                 # commit docs and changelog Δ
                 'git add . && git cm -am "chore: update changelog, version pump" && git push',
                 # clear previous built assets
-                "rm -rf dist/*",
+                'if [ -d dist ] && [ -n "$(ls -A dist)" ]; then rm -rf dist/*; fi',
                 # build and publish to pypi
                 "poetry publish --build",
                 # update github release to the current tag
