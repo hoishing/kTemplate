@@ -1,40 +1,30 @@
 [build-system]
-requires = [ "poetry-core",]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "kTemplate"
-version = "0.3.3"
+version = "0.4.0"
 description = "a minimalist python html template lib"
-authors = [ "Kelvin Ng <hoishing@gmail.com>",]
+authors = ["Kelvin Ng <hoishing@gmail.com>"]
 readme = "README.md"
 license = "MIT"
 repository = "https://github.com/hoishing/kTemplate"
 homepage = "https://hoishing.github.io/kTemplate"
-keywords = [ "template", "html", "jinja",]
-classifiers = [ "Topic :: Internet :: WWW/HTTP :: Dynamic Content", "Intended Audience :: Developers", "Framework :: Flask", "Framework :: FastAPI", "Development Status :: 4 - Beta",]
+keywords = ["template", "html"]
+classifiers = [
+  "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+  "Intended Audience :: Developers",
+  "Development Status :: 4 - Beta",
+]
+packages = [{ include = "kTemplate", from = "." }]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-
-[tool.poetry.scripts]
-pump = "pump:main"
-
-[tool.poetry.group.dev]
-optional = true
+python = "^3.12"
 
 [tool.poetry.group.dev.dependencies]
-mkdocs-material = "^9.0.4"
+mkdocs-material = "^9.5.31"
 auto-changelog = "^0.6.0"
-pytest = "^7.2.0"
-coverage = "^7.0.4"
-black = "^22.12.0"
+pytest = "^8.3.2"
 toml = "^0.10.2"
-
-[tool.poetry.group.dev.dependencies.mkdocstrings]
-extras = [ "python",]
-version = "^0.20.0"
-
-[tool.poetry.group.dev.dependencies.genbadge]
-extras = [ "coverage",]
-version = "^1.1.0"
+mkdocstrings = { extras = ["python"], version = "^0.25.2" }

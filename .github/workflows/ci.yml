@@ -1,63 +1,67 @@
 name: CI
 
-on: 
-  release:
-    types: [published]
-  pull_request:
+on:
+  push:
     branches:
       - main
 
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
     steps:
-      #----------------------------------------------
-      #       check-out repo and set-up python
-      #----------------------------------------------
-      - name: Check out repository
-        uses: actions/checkout@v3
-      - name: Set up python
-        id: setup-python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
         with:
-          python-version: '3.11'
-      #----------------------------------------------
-      #  -----  install & configure poetry  -----
-      #----------------------------------------------
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: snok/install-poetry@v1
         with:
           virtualenvs-create: true
           virtualenvs-in-project: true
+          virtualenvs-path: .venv
           installer-parallel: true
 
-      #----------------------------------------------
-      #       load cached venv if cache exists
-      #----------------------------------------------
-      - name: Load cached venv
-        id: cached-poetry-dependencies
-        uses: actions/cache@v3
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
-      #----------------------------------------------
-      # install dependencies if cache does not exist
-      #----------------------------------------------
-      - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root --with dev
-      #----------------------------------------------
-      #              run test suite
-      #----------------------------------------------
-      - name: Run tests
+      - run: |
+          poetry install
+          # avoid activate evn in every step
+          echo "$GITHUB_WORKSPACE/.venv/bin" >> $GITHUB_PATH
+
+      - id: test
+        run: pytest --doctest-modules kTemplate tests
+
+      - id: check_version
+        run: python .github/workflows/check_version.py
+
+      - id: build
+        if: steps.check_version.outputs.new_version != ''
+        run: poetry build
+
+      - name: pump
+        id: pump
+        if: steps.build.conclusion == 'success'
         run: |
-          source .venv/bin/activate
-          coverage run -m pytest --doctest-modules kTemplate tests
-          coverage report
-      #----------------------------------------------
-      #              update docs
-      #----------------------------------------------
-      - name: Update Docs
+          git config --global user.email "hoishing@gmail.com"
+          git config --global user.name "Kelvin Ng"
+          git tag ${{ steps.check_version.outputs.new_version }}
+          git push --tag -f
+          auto-changelog
+
+      - id: gh_release
+        if: steps.pump.conclusion == 'success'
         run: |
-          source .venv/bin/activate
-          mkdocs gh-deploy --force
+          latest_tag=${{ steps.check_version.outputs.new_version }}
+          echo ${{ secrets.GH_TOKEN }} | gh auth login --with-token
+          gh release create "$latest_tag" --generate-notes ./dist/*
+          git add . && git commit -am "ci: update auto-changelog, create release $latest_tag" && git push
+
+      - id: publish
+        if: steps.gh_release.conclusion == 'success'
+        run: |
+          poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
+          poetry publish
+
+      - id: deploy_docs
+        if: steps.publish.conclusion == 'success'
+        run: mkdocs gh-deploy --force
