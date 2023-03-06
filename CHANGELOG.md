@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.3.4 (2023-03-06)
+
+#### Fixes
+
+- add table element
+
+#### Docs
+
+- add author
+
+#### Others
+
+- trigger by release instead of push
+- update changelog, version pump
+
+Full set of changes: [`0.3.3...0.3.4`](https://github.com/hoishing/kTemplate/compare/0.3.3...0.3.4)
+
 ## 0.3.3 (2023-02-19)
 
 #### New Features
