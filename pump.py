@@ -73,7 +73,7 @@ def main(section, tag, publish):
             cmds = [
                 "git push --tag -f",
                 # run test w/ coverage
-                "coverage run -m pytest --doctest-modules --ignore pump.py --ignore-glob try.*",
+                "coverage run -m pytest --doctest-modules kTemplate tests",
                 "coverage report",
                 # create html report for docs
                 "coverage html -d docs/assets/coverage",
