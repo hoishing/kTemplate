@@ -51,9 +51,6 @@ cover/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# poetry
-poetry.lock
-
 # Environments
 .env
 .venv
