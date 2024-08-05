@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "kTemplate"
-version = "0.4.0"
+version = "0.4.1"
 description = "a minimalist python html template lib"
 authors = ["Kelvin Ng <hoishing@gmail.com>"]
 readme = "README.md"

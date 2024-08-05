@@ -47,7 +47,6 @@ jobs:
           git config --global user.name "Kelvin Ng"
           git tag ${{ steps.check_version.outputs.new_version }}
           git push --tag -f
-          auto-changelog
 
       - id: gh_release
         if: steps.pump.conclusion == 'success'
@@ -55,6 +54,7 @@ jobs:
           latest_tag=${{ steps.check_version.outputs.new_version }}
           echo ${{ secrets.GH_TOKEN }} | gh auth login --with-token
           gh release create "$latest_tag" --generate-notes ./dist/*
+          auto-changelog
           git add . && git commit -am "ci: update auto-changelog, create release $latest_tag" && git push
 
       - id: publish
