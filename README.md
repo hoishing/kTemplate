@@ -5,7 +5,6 @@
 > a minimalist python html template
 
 - [docs]
-- [source code]
 
 ## Quick Start
 
@@ -77,5 +76,4 @@ Open a [github issue] or ping me on [Twitter ![twitter-icon]][Twitter]
 [black-badge]: https://img.shields.io/badge/code%20style-black-000000.svg
 [black-url]: https://github.com/psf/black
 [templates and components]: https://hoishing.github.io/kTemplate/usage/#templates-and-components
-[source code]: https://github.com/hoishing/kTemplate
 [docs]: https://hoishing.github.io/kTemplate

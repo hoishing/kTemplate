@@ -24,7 +24,6 @@ python = "^3.12"
 
 [tool.poetry.group.dev.dependencies]
 mkdocs-material = "^9.5.31"
-auto-changelog = "^0.6.0"
 pytest = "^8.3.2"
 toml = "^0.10.2"
 mkdocstrings = { extras = ["python"], version = "^0.25.2" }

@@ -39,8 +39,7 @@ jobs:
         if: steps.check_version.outputs.new_version != ''
         run: poetry build
 
-      - name: pump
-        id: pump
+      - id: pump
         if: steps.build.conclusion == 'success'
         run: |
           git config --global user.email "hoishing@gmail.com"
@@ -48,17 +47,15 @@ jobs:
           git tag ${{ steps.check_version.outputs.new_version }}
           git push --tag -f
 
-      - id: gh_release
+      - id: release
         if: steps.pump.conclusion == 'success'
         run: |
           latest_tag=${{ steps.check_version.outputs.new_version }}
           echo ${{ secrets.GH_TOKEN }} | gh auth login --with-token
           gh release create "$latest_tag" --generate-notes ./dist/*
-          auto-changelog
-          git add . && git commit -am "ci: update auto-changelog, create release $latest_tag" && git push
 
       - id: publish
-        if: steps.gh_release.conclusion == 'success'
+        if: steps.release.conclusion == 'success'
         run: |
           poetry config pypi-token.pypi ${{ secrets.PYPI_API_TOKEN }}
           poetry publish
